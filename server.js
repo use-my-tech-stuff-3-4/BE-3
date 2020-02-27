@@ -8,8 +8,8 @@
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("Hola, coma estas?!");
+router.get('/', (req, res) => {
+    res.sendFile('./html/index.html', { root: __dirname });
 });
 
 module.exports = router; 
