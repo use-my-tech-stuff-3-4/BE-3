@@ -10,10 +10,10 @@ exports.up = function(knex) {
           .notNullable();
         tbl.text('Description')
           .notNullable();
-        tbl.text('Price');
-        .notNullable();
-        tbl.text('Availability');
-        .notNullable();
+        tbl.text('Price')
+          .notNullable();
+        tbl.text('Availability')
+          .notNullable();
         tbl.text('Brand');
         tbl.text('Model');
         tbl.text('imgURL');
