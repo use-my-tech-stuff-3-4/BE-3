@@ -1,23 +1,23 @@
 exports.up = function(knex, Promise) {
   return knex.schema
-  .createTable("users", user => {
-      user.increments();
-      user
+  .createTable("users", users => {
+      users.increments();
+      users
         .string("username", 32)
         .notNullable()
         .unique();
-      user
+      users
         .string("password", 128)
         .notNullable();
-      user
+      users
         .string("email", 50);
-      user
+      users
         .string("firstname");
-      user
+      users
         .string("lastname");
-      user
+      users
         .string("phone");
-      user
+      users
         .string("address");
   })
 };
