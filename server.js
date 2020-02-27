@@ -9,7 +9,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get('/', (req, res) => {
-    res.sendFile('./html/index.html', { root: __dirname });
+    res.sendFile(__dirname + "/" + "/html/index.html");
 });
 
 module.exports = router; 
