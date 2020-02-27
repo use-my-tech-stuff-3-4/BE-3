@@ -2,6 +2,8 @@ const express = require("express");
 const server = express();
 const LandingRouter = require("./server")
 
+require('dotenv').config();
+
 server.use(express.json());
 
 const host = process.env.HOST || "http://127.0.0.1";
