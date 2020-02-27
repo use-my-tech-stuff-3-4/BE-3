@@ -21,15 +21,15 @@ function generateToken(user) {
 router.post('/register', async (req, res) => {
     let user = req.body;
     const email = user.email;
-    // const username = user.username;
+    const username = user.username;
     const password = user.password;
     const hash = bcrypt.hashSync(user.password, 10);
     user.password = hash;
     if (email && !validator.validate(email)) {
         res.status(400).json({ message: "Please provide valid email" });
-    } else if (!email || !password) {
+    } else if (!username || !password) {
         res.status(401).json({ message: "Must enter a username and password" });
-    } else if (await User.findBy({ email })) {
+    } else if (await User.findBy({ username })) {
         res.status(400).json({ message: "That username is taken" })
     } else if (password.length < 8) {
         res.status(400).json({ message: "Password must be at least 8 characters" })
