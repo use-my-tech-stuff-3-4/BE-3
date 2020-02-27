@@ -76,7 +76,7 @@ router.get('/logout', (req, res) => {
 
 router.post('/checkauth', (req, res) => {
     const token = req.body.token;
-    jwt.verify(token, secret, err => {
+    jwt.verify(token, secrets, err => {
         if (err) {
             res.send(false);
         } else {
