@@ -31,7 +31,6 @@ module.exports = {
       directory: './data/seeds',
     },
   },
-
   staging: {
     client: 'sqlite3',
     connection: {
