@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const validator = require('email-validator');
-
+const restricted = require('./restricted');
 const secrets = require('../config/secret');
 const User = require('../helpers/users/usersModel');
 
@@ -74,15 +74,12 @@ router.get('/logout', (req, res) => {
     }
 });
 
-router.post('/checkauth', (req, res) => {
-    const token = req.body.token;
-    jwt.verify(token, secrets, err => {
-        if (err) {
-            res.send(false);
-        } else {
-            res.send(true);
-        }
-    });
+router.get('/users', restricted, (req, res) => {
+    User.find()
+      .then(user => {
+        res.json({ user, loggedInUser: req.user.username });
+      })
+      .catch(err => res.send(err));
 });
 
 module.exports = router;
