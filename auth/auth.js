@@ -3,7 +3,7 @@ const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const validator = require('email-validator');
-const restricted = require('./restricted');
+const restricted = require('../auth/restricted/restricted');
 const secrets = require('../config/secret');
 const User = require('../helpers/users/usersModel');
 
