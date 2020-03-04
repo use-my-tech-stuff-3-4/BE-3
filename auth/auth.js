@@ -88,7 +88,7 @@ router.get('/users', restricted, (req, res) => {
 //         res.json({ user, loggedInUser: req.user.username });
 //       })
 //       .catch(err => res.send(err));
-// });
+// }); // WORKING ENDPOINT, just wanted to try it via ASYNC
 
 router.get('/users/:id', restricted, async (req, res) => {
     try {
