@@ -82,4 +82,24 @@ router.get('/users', restricted, (req, res) => {
       .catch(err => res.send(err));
 });
 
+// router.get('/users/:id', restricted, (req, res) => {
+//     User.findById(req.params.id)
+//       .then(user => {
+//         res.json({ user, loggedInUser: req.user.username });
+//       })
+//       .catch(err => res.send(err));
+// });
+
+router.get('/users/:id', restricted, async (req, res) => {
+    try {
+        let user = await User.findById(req.params.id)
+        if (!user) { 
+            res.status(404).json({ error: "The specified User does not exist!" });
+        } else {
+            res.status(200).json(user);
+        }
+    } catch(error) {
+        res.status(500).json({ error, message: "Unable to get the specified User!" });
+    }
+});
 module.exports = router;

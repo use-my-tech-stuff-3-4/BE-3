@@ -8,12 +8,12 @@ module.exports = {
     removeItem,
 };
 
-function getItems() {
-    return db('items')
+async function getItems() {
+    return await db('items')
 }
 
-function getItem(id) {
-    return db('items')
+async function getItem(id) {
+    return await db('items')
     .where({ id })
     .first();
 }
@@ -23,14 +23,14 @@ async function addItem(item) {
     return getItem(id);
 }
 
-function updateItem(id, changes) {
-    return db('items')
+async function updateItem(id, changes) {
+    return await db('items')
     .where({ id })
     .update(changes);
 }
 
-function removeItem(id) {
-    return db('items')
+async function removeItem(id) {
+    return await db('items')
     .where('id', id)
     .del();
 }
