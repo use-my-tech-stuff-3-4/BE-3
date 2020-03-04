@@ -7,13 +7,13 @@ module.exports = {
   findById,
 };
 
-function find() {
-  return db('users')
+async function find() {
+  return await db('users')
     .select('id', 'username', 'password')
 }
 
-function findBy(filter) {
-  return db('users')
+async function findBy(filter) {
+  return await db('users')
     .where(filter)
     .first();
 }
@@ -23,8 +23,8 @@ async function add(user) {
   return findById(id);
 }
 
-function findById(id) {
-  return db('users')
+async function findById(id) {
+  return await db('users')
     .where({ id })
     .first();
 }
