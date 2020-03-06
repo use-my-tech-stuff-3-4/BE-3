@@ -3,6 +3,7 @@ const db = require('../../data/dbConfig');
 module.exports = {
     getItems,
     getItem,
+    // getItemsByUserId,
     addItem,
     updateItem,
     removeItem,
@@ -34,3 +35,22 @@ async function removeItem(id) {
     .where('id', id)
     .del();
 }
+
+// function getItemsByUserId() {
+//     return db("items")
+//       .leftJoin("users", "items.user_id")
+//       .select({
+//         id: "items.id",
+//         owner_id: "items.owner_id",
+//         title: "items.title",
+//         type: "items.type",
+//         description: "items.description",
+//         price: "items.cost",
+//         availability: "items.availability",
+//         brand: "items.brand",
+//         model: "items.model",
+//         img_URL: "items.img_URL",
+//         renter: "items.renter"
+//       .where("user_id", userId)
+//       });
+//   }

@@ -10,11 +10,11 @@ describe('users model', () => {
     });
 
     const mockUser = {
-        username: "Pat", 
-        password: "password11", 
-        email: "pat@gmail.com", 
-        firstname: "Pat", 
-        lastname: "Donaly", 
+        username: "Patty", 
+        password: "password", 
+        email: "patty@gmail.com", 
+        firstname: "Patty", 
+        lastname: "D", 
         phone: "1234567", 
         address: "1234567"
     }
