@@ -102,4 +102,5 @@ router.get('/users/:id', restricted, async (req, res) => {
         res.status(500).json({ error, message: "Unable to get the specified User!" });
     }
 });
+
 module.exports = router;
